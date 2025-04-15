@@ -1,5 +1,4 @@
 import { utils as ethersUtils, Wallet } from 'ethers';
-import { stripHexPrefix } from 'ethereumjs-util';
 
 const MIN_ENTROPY_SIZE = 128;
 const { keccak256 } = ethersUtils;
@@ -32,13 +31,5 @@ export function createPrivateKey(entropy) {
  * @param {Buffer?} entropy if provided, will use that as single random-source
  */
 export function createIdentity(entropy) {
-    const privateKey = createPrivateKey(entropy);
-    const wallet = new Wallet(privateKey);
-    const identity = {
-        privateKey: privateKey,
-        // remove trailing '0x04'
-        publicKey: stripHexPrefix(wallet.publicKey).slice(2),
-        address: wallet.address,
-    };
-    return identity;
+
 }

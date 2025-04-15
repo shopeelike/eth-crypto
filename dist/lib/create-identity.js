@@ -6,7 +6,6 @@ Object.defineProperty(exports, "__esModule", {
 exports.createIdentity = createIdentity;
 exports.createPrivateKey = createPrivateKey;
 var _ethers = require("ethers");
-var _ethereumjsUtil = require("ethereumjs-util");
 var MIN_ENTROPY_SIZE = 128;
 var keccak256 = _ethers.utils.keccak256;
 
@@ -35,13 +34,5 @@ function createPrivateKey(entropy) {
  * @param {Buffer?} entropy if provided, will use that as single random-source
  */
 function createIdentity(entropy) {
-  var privateKey = createPrivateKey(entropy);
-  var wallet = new _ethers.Wallet(privateKey);
-  var identity = {
-    privateKey: privateKey,
-    // remove trailing '0x04'
-    publicKey: (0, _ethereumjsUtil.stripHexPrefix)(wallet.publicKey).slice(2),
-    address: wallet.address
-  };
-  return identity;
+
 }

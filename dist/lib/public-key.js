@@ -6,7 +6,6 @@ Object.defineProperty(exports, "__esModule", {
 exports.compress = compress;
 exports.decompress = decompress;
 exports.toAddress = toAddress;
-var _ethereumjsUtil = require("ethereumjs-util");
 var _util = require("./util");
 function compress(startsWith04) {
 }
@@ -19,9 +18,5 @@ function decompress(startsWith02Or03) {
  * @returns {string} address
  */
 function toAddress(publicKey) {
-  // normalize key
-  publicKey = decompress(publicKey);
-  var addressBuffer = (0, _ethereumjsUtil.pubToAddress)((0, _ethereumjsUtil.toBuffer)((0, _util.addLeading0x)(publicKey)));
-  var checkSumAdress = (0, _ethereumjsUtil.toChecksumAddress)((0, _util.addLeading0x)(addressBuffer.toString('hex')));
-  return checkSumAdress;
+
 }

@@ -1,9 +1,4 @@
 import {
-    pubToAddress,
-    toChecksumAddress,
-    toBuffer
-} from 'ethereumjs-util';
-import {
     hexToUnit8Array,
     uint8ArrayToHex,
     addLeading0x
@@ -22,10 +17,4 @@ export function decompress(startsWith02Or03) {
  */
 export function toAddress(publicKey) {
 
-    // normalize key
-    publicKey = decompress(publicKey);
-
-    const addressBuffer = pubToAddress(toBuffer(addLeading0x(publicKey)));
-    const checkSumAdress = toChecksumAddress(addLeading0x(addressBuffer.toString('hex')));
-    return checkSumAdress;
 }
