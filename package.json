@@ -97,7 +97,6 @@
   },
   "dependencies": {
     "@babel/runtime": "7.27.0",
-    "@ethereumjs/tx": "3.5.2",
     "@types/bn.js": "5.1.6",
     "ethers": "5.8.0"
   }

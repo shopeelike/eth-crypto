@@ -1,5 +1,4 @@
 import BigNumber from 'bn.js';
-import { TxOptions } from '@ethereumjs/tx';
 
 type createIdentityType = (entropy?: Buffer) => {
     privateKey: string,
@@ -75,7 +74,7 @@ export const cipher: cipherType;
 type signTransactionType = (
     rawTx: RawTx,
     privateKey: string,
-    txOptions?: TxOptions
+    txOptions?: any
 ) => string;
 export const signTransaction: signTransactionType;
 
